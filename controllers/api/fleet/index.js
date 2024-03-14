@@ -28,10 +28,10 @@ const fleet_controller = {
 
         if (fleet) {
             fleet_service.delete(req.params.id)
-            res.status(204).send('Fleet item deleted.')
+            res.status(204).send('Fleet item was deleted.')
         } 
         else {
-            res.status(404).send('Fleet item not found.')
+            res.status(404).send('Fleet item could not be found.')
         }
     }
 }

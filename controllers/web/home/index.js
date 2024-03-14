@@ -8,8 +8,8 @@ const home_controller = {
         res.render('home/add_update', { mode: 'Add' });
     },
     update: async (req, res) =>{
-        const eventData = await fleet_service.getById(req.params.id);
-        res.render('home/add_update', { mode: 'Update', eventData: eventData });
+        const fleetData = await fleet_service.getById(req.params.id);
+        res.render('home/add_update', { mode: 'Update', fleetData: fleetData });
     }
 };
 

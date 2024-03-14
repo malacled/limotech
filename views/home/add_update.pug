@@ -4,6 +4,9 @@ body
     .container.mt-5
         h1 #{mode}
         .mb-3
+            label(for="carType" class="form-label") Car Type
+            input(type="text" class="form-control" id="carType" name="carType" required)
+        .mb-3
             label(for="carName" class="form-label") Car Name
             input(type="text" class="form-control" id="carName" name="carName" required)
         .mb-3
@@ -14,14 +17,11 @@ body
                     .input-group-text
                         i.fas.fa-calendar-alt
         .mb-3
-            label(for="carType" class="form-label") Car Type
-            input(type="text" class="form-control" id="carType" name="carType" required)
+            label(for="carMiles" class="form-label") Car Miles
+            input(type="text" class="form-control" id="carMiles" name="carMiles" required)
         .mb-3
             label(for="contactPhone" class="form-label") Contact Phone
             input(type="tel" class="form-control" id="contactPhone" name="contactPhone" required)
-        .mb-3
-            label(for="carMiles" class="form-label") Car Miles
-            input(type="text" class="form-control" id="carMiles" name="carMiles" required)
         button(type="submit" class="btn btn-success" onclick="submitForm()") #{mode === 'Update' ? 'Update' : 'Add'}
         span &nbsp;
         button(type="submit" class="btn btn-primary" onclick="window.location.href='/'") Back to list
@@ -38,20 +38,20 @@ body
         }
 
         if ("#{mode}" === "Update") {
-            const eventData = !{JSON.stringify(eventData || {})}.fleet;
-            document.getElementById('carName').value = eventData.carName || '';
+            const fleetData = !{JSON.stringify(fleetData || {})}.fleet;
+            document.getElementById('carName').value = fleetData.carName || '';
 
             picker.dates.setValue(
-                new tempusDominus.DateTime(moment(eventData.productionDate, format))
+                new tempusDominus.DateTime(moment(fleetData.productionDate, format))
             );
 
-            document.getElementById('carType').value = eventData.carType || '';
-            document.getElementById('contactPhone').value = eventData.contactPhone || '';
-            document.getElementById('carMiles').value = eventData.carMiles || '';
+            document.getElementById('carType').value = fleetData.carType || '';
+            document.getElementById('contactPhone').value = fleetData.contactPhone || '';
+            document.getElementById('carMiles').value = fleetData.carMiles || '';
         }
 
         function submitForm() {
-            const eventData = {
+            const fleetData = {
                 carName: document.getElementById('carName').value,
                 productionDate: document.getElementById('productionDate').value,
                 carType: document.getElementById('carType').value,
@@ -59,10 +59,10 @@ body
                 carMiles: document.getElementById('carMiles').value,
             };
 
-            const url = "#{mode}" === "Update" ? `/api/fleet/${!{JSON.stringify(eventData || {})}.id}` : '/api/fleet';
+            const url = "#{mode}" === "Update" ? `/api/fleet/${!{JSON.stringify(fleetData || {})}.id}` : '/api/fleet';
             const method = "#{mode}" === "Update" ? 'put' : 'post';
 
-            axios[method](url, eventData).then(response => {
+            axios[method](url, fleetData).then(response => {
                 alert('Success!');
                 location.href = '/'
             })

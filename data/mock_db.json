@@ -2,11 +2,21 @@
     {
         "id": "81Ci",
         "fleet": {
+            "carType": "SUV",
             "carName": "Cadillac Escalade",
             "productionDate": "04/03/2024 15:59",
-            "carType": "SUV",
-            "contactPhone": "+998947981800",
-            "carMiles": "22000"
+            "carMiles": "22000",
+            "contactPhone": "+998947981800"
+        }
+    },
+    {
+        "id": "Dp9L",
+        "fleet": {
+            "carName": "Lincoln Navigator",
+            "productionDate": "05/03/2024 16:19",
+            "carType": "SED",
+            "contactPhone": "+998901745252",
+            "carMiles": "12,000"
         }
     }
 ]
