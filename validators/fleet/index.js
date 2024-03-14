@@ -1,11 +1,14 @@
 const { body, param } = require('express-validator');
 const fleet_service = require('../../services/fleet')
 
+// this is for validation of inputs in the form
 const addFleetValidation = () => {
     return [
+        // this checks the car name isn't empty and 4-200 characters
         body('carName')
             .notEmpty().withMessage('Car name cannot be empty.')
             .isLength({ min: 4, max: 200 }).withMessage('Car name must be between 4-200 characters long.'),
+        
         body('productionDate')
             .notEmpty().withMessage('Production date time must not be empty')
             .matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d\s([01][0-9]|2[0-3]):([0-5][0-9])$/, 'g')

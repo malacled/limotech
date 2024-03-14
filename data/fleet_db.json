@@ -1,6 +1,6 @@
 [
     {
-        "id": "81Ci",
+        "id": "8261",
         "fleet": {
             "carType": "SUV",
             "carName": "Luxury Sedan (Town Car or Similar)",
@@ -10,7 +10,7 @@
         }
     },
     {
-        "id": "81C2",
+        "id": "7288",
         "fleet": {
             "carType": "BMW",
             "carName": "BMW or Mercedes",
@@ -20,7 +20,7 @@
         }
     },
     {
-        "id": "Dp9L",
+        "id": "1677",
         "fleet": {
             "carType": "SUV",
             "carName": "Cadillac Escalade",
@@ -30,7 +30,7 @@
         }
     },
     {
-        "id": "Dp9O",
+        "id": "1902",
         "fleet": {
             "carType": "VAN",
             "carName": "Luxury Van",
@@ -40,7 +40,7 @@
         }
     },
     {
-        "id": "On91",
+        "id": "1401",
         "fleet": {
             "carType": "LIMO",
             "carName": "Stretch Limousine",
@@ -50,13 +50,13 @@
         }
     },
     {
-        "id": "Ln22",
+        "id": "8162",
         "fleet": {
+            "carName": "Cadillac Escalade",
+            "productionDate": "19/03/2024 17:44",
             "carType": "SUV",
-            "carName": "Stretch Hummer or Escalade",
-            "productionDate": "05/03/2024 16:19",
-            "carMiles": "2,000",
-            "contactPhone": "+998981745258"
+            "contactPhone": "+998977981800",
+            "carMiles": "14000"
         }
     }
 ]

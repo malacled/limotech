@@ -1,3 +1,4 @@
+// validation
 const express = require('express');
 const { validationResult } = require('express-validator');
 const { addFleetValidation, updateFleetValidation, deleteFleetValidation } = require('../../../validators/fleet');
@@ -5,11 +6,12 @@ const { addFleetValidation, updateFleetValidation, deleteFleetValidation } = req
 const router = express.Router();
 const fleet_controller = require('../../../controllers/api/fleet');
 
-// Define API routes
+// defining our API routes
 router.get('/', (req, res)=>{
     fleet_controller.getAll(req, res);
 });
 
+// definition for add
 router.post('/', addFleetValidation(), (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -18,6 +20,7 @@ router.post('/', addFleetValidation(), (req, res)=>{
     fleet_controller.create(req, res)
 })
 
+// definition for update
 router.put('/:id', updateFleetValidation(), (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -26,6 +29,7 @@ router.put('/:id', updateFleetValidation(), (req, res)=>{
     fleet_controller.update(req, res)
 })
 
+// definition for delte
 router.delete('/:id', deleteFleetValidation(), (req, res, next)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

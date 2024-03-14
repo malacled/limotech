@@ -1,23 +1,41 @@
 include ../head.pug
 body
-    .container.mt-5
-        .row.d-flex.align-items-center
-            .col-md-6
-                h1 Fleet List
-            .col-md-6.text-end
-                a.btn.btn-success(href='/add', role='button') Add
-        table.table.table-responsive.table-hover.table-striped.table-dark
-            thead
-                tr
-                    th(scope="col") ID
-                    th(scope="col") Car Type
-                    th(scope="col") Car Name
-                    th(scope="col") Production Date
-                    th(scope="col") Car Miles
-                    th(scope="col") Contact Phone
-                    th(scope="col") Actions
-            tbody
-
+    section.parallax(style="background-image: url('https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-abstract-background-black-background-2880x1800-8710.jpg')")
+        .section-content
+            .container.mt-5
+                .row.d-flex.align-items-center
+                    .col-md-6
+                        h1 Fleet List
+                    .col-md-6.text-end
+                        a.btn.btn-success(href='/add', role='button') Add
+                table.table.table-responsive.table-hover.table-striped.table-dark
+                    thead
+                        tr
+                            th(scope="col") ID
+                            th(scope="col") Car Type
+                            th(scope="col") Car Name
+                            th(scope="col") Production Date
+                            th(scope="col") Car Miles
+                            th(scope="col") Contact Phone
+                            th(scope="col") Actions
+                    tbody
+    h3 This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service. Made by 00019257.
+    section.parallax(style="background-image: url('https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-abstract-background-black-background-2880x1800-8710.jpg')")
+        .section-content
+            h2 About the Application
+            p 
+                | This application is meant for listings of popular 
+                | cars used by transportation companies and includes 
+                | the car type, car specification, milage travelled,
+                | as well as the year model of the car. If you are 
+                | interested in any given car feel free to call the 
+                | contact number provided. 
+            p 
+                | Additionally, if you would like to add your own 
+                | listing or make corrections, or delete any of the 
+                | current listings, you are given the options to do 
+                | so. Enjoy!
+    h3 This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service. Made by 00019257.
 script.
     document.addEventListener('DOMContentLoaded', function() {
         axios.get('/api/fleet').then(function(response) {
@@ -34,7 +52,7 @@ script.
                     <td>${fleet.carMiles}</td>
                     <td>${fleet.contactPhone}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm" data-id="${f.id}" onclick="window.location.href='/update/${f.id}'">Update</button>
+                        <button id="update" class="btn btn-primary btn-sm" data-id="${f.id}" onclick="window.location.href='/update/${f.id}'">Update</button>
                         <button class="btn btn-danger btn-sm" data-id="${f.id}">Delete</button>
                     </td>
                 `;
