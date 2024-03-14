@@ -8,6 +8,13 @@ DOCUMENTATION:
 
 -The application dependencies of this application include, but are not limited to, bootstrap, all the packages installed for the node.js bit, and numerous other libraries references in head.pug. 
 
--Github Repository link: 
+-Github Repository link: https://github.com/malacled/limotech
+
+-Deployment link via Render: https://limotech.onrender.com/
+
 -Deployment link via aws: http://ec2-16-16-255-57.eu-north-1.compute.amazonaws.com:3000/
--Deployment link via Glitch: 
+
+-The reason I have multiple deployment links is because AWS was recommended by our lector but unfortunately if the tab isn't open running ubuntu, it seems to not be working. Just in case my computer isn't open at that time, I also have the render deployment link. 
+
+Thank you for reading my readme file, I hope the application is of some, if any, use to you :) 
+Happy grading and have a nice day.
