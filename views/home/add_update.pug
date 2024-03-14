@@ -4,10 +4,10 @@ body
     .container.mt-5
         h1 #{mode}
         .mb-3
-            label(for="carName" class="form-label") Event Name
+            label(for="carName" class="form-label") Car Name
             input(type="text" class="form-control" id="carName" name="carName" required)
         .mb-3
-            label(for="productionDate" class="form-label") Event Date/Time
+            label(for="productionDate" class="form-label") Production Date
             .input-group.date(id="datetimepicker1" data-target-input="nearest")
                 input(type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="productionDate" name="productionDate" required)
                 .input-group-append(data-target="#datetimepicker1" data-toggle="datetimepicker")
