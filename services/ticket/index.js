@@ -5,7 +5,6 @@ const tickets = require(global.mock_db)
 
 // write service method implementations
 const ticket_service = {
-
     getAll() {
         return tickets
     },
@@ -14,6 +13,7 @@ const ticket_service = {
     },
     create(req, res) {
         let new_id = genRandId(4)
+        
         const ticket = req.body
 
         const new_ticket = {
@@ -22,10 +22,23 @@ const ticket_service = {
         }
 
         tickets.push(new_ticket)
+        
+        writeToFile(tickets)
+        
+        return new_ticket
+    },
+    update(id, updateData){
+        const ticketIndex = tickets.findIndex(t => t.id == id)
+
+        if (ticketIndex === -1) {
+            return null
+        }
+
+        tickets[ticketIndex].ticket = { ...tickets[ticketIndex].ticket, ...updateData }
 
         writeToFile(tickets)
 
-        return new_ticket
+        return tickets[ticketIndex]
     },
     delete(id) {
         const index = tickets.findIndex(u => u.id == id)
@@ -36,13 +49,13 @@ const ticket_service = {
 
 // create function for overwriting the db file updated db content
 let writeToFile = async (users) => {
-        await 
-            fs.writeFileSync(
-                global.mock_db,
-                JSON.stringify(
+    await 
+        fs.writeFileSync(
+            global.mock_db,
+            JSON.stringify(
                 users, null, 4
             ),
-        'utf8'
+            'utf8'
         )
 }
 

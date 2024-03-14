@@ -1,8 +1,11 @@
 include ../head.pug
 body
-
     .container.mt-5
-        h1 List
+        .row.d-flex.align-items-center
+            .col-md-6
+                h1 List
+            .col-md-6.text-end
+                a.btn.btn-success(href='/add', role='button') Add      
         table.table.table-responsive.table-hover.table-striped.table-dark
             thead
                 tr
@@ -17,8 +20,7 @@ body
 
 script.
     document.addEventListener('DOMContentLoaded', function() {
-        axios.get('/api/ticket')
-        .then(function(response) {
+        axios.get('/api/ticket').then(function(response) {
             const tickets = response.data;
             const tableBody = document.querySelector('table tbody');
             tickets.forEach(t => {
@@ -32,7 +34,7 @@ script.
                     <td>${ticket.contactPhone}</td>
                     <td>${ticket.seat}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-primary btn-sm" data-id="${t.id}" onclick="window.location.href='/update/${t.id}'">Update</button>
                         <button class="btn btn-danger btn-sm" data-id="${t.id}">Delete</button>
                     </td>
                 `;
@@ -46,13 +48,13 @@ script.
         // Use event delegation for delete buttons
         document.addEventListener('click', function(event) {
             if (event.target && event.target.classList.contains('btn-danger')) {
-                    const ticketId = event.target.getAttribute('data-id');
-                    axios.delete(`/api/ticket/${ticketId}`).then(function(response) {
-                        console.log('Delete successful', response);
-                        location.href = '/'
+                const ticketId = event.target.getAttribute('data-id');
+                axios.delete(`/api/ticket/${ticketId}`).then(function(response) {
+                    alert('Deleted successfully', response);
+                    location.href = '/'
                 })
                 .catch(function(error) {
-                    console.log('Error deleting ticket', error);
+                    alert('Error deleting ticket: ' + error);
                 });
             }
         });
