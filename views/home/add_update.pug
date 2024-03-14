@@ -38,7 +38,7 @@ body
         }
 
         if ("#{mode}" === "Update") {
-            const eventData = !{JSON.stringify(eventData || {})}.ticket;
+            const eventData = !{JSON.stringify(eventData || {})}.fleet;
             document.getElementById('eventName').value = eventData.eventName || '';
 
             picker.dates.setValue(
@@ -59,7 +59,7 @@ body
                 seat: document.getElementById('seat').value,
             };
 
-            const url = "#{mode}" === "Update" ? `/api/ticket/${!{JSON.stringify(eventData || {})}.id}` : '/api/ticket';
+            const url = "#{mode}" === "Update" ? `/api/fleet/${!{JSON.stringify(eventData || {})}.id}` : '/api/fleet';
             const method = "#{mode}" === "Update" ? 'put' : 'post';
 
             axios[method](url, eventData).then(response => {

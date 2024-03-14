@@ -1,49 +1,49 @@
 const fs = require('fs')
 
 // access global mock db file
-const tickets = require(global.mock_db)
+const fleets = require(global.mock_db)
 
 // write service method implementations
-const ticket_service = {
+const fleet_service = {
     getAll() {
-        return tickets
+        return fleets
     },
     getById(id) {
-        return tickets.find(t => t.id == id)
+        return fleets.find(t => t.id == id)
     },
     create(req, res) {
         let new_id = genRandId(4)
         
-        const ticket = req.body
+        const fleet = req.body
 
-        const new_ticket = {
+        const new_fleet = {
             id: new_id,
-            ticket: ticket
+            fleet: fleet
         }
 
-        tickets.push(new_ticket)
+        fleets.push(new_fleet)
         
-        writeToFile(tickets)
+        writeToFile(fleets)
         
-        return new_ticket
+        return new_fleet
     },
     update(id, updateData){
-        const ticketIndex = tickets.findIndex(t => t.id == id)
+        const fleetIndex = fleets.findIndex(t => t.id == id)
 
-        if (ticketIndex === -1) {
+        if (fleetIndex === -1) {
             return null
         }
 
-        tickets[ticketIndex].ticket = { ...tickets[ticketIndex].ticket, ...updateData }
+        fleets[fleetIndex].fleet = { ...fleets[fleetIndex].fleet, ...updateData }
 
-        writeToFile(tickets)
+        writeToFile(fleets)
 
-        return tickets[ticketIndex]
+        return fleets[fleetIndex]
     },
     delete(id) {
-        const index = tickets.findIndex(u => u.id == id)
-        tickets.splice(index, 1)
-        writeToFile(tickets)
+        const index = fleets.findIndex(u => u.id == id)
+        fleets.splice(index, 1)
+        writeToFile(fleets)
     }
 }
 
@@ -70,4 +70,4 @@ let genRandId = (count) =>{
     return result
 }
 
-module.exports = ticket_service
+module.exports = fleet_service

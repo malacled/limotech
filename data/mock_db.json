@@ -1,11 +1,11 @@
 [
     {
         "id": "asf13rdsf",
-        "ticket": {
+        "fleet": {
             "eventName": "Andrea Bocelli",
             "eventDateTime": "12/02/2024 19:00",
             "venue": "Turkiston",
-            "contactPhone": "+998947981800",
+            "contactPhone": "+998947981819",
             "seat": "sector: A, row: 15, seat: 25"
         }
     }

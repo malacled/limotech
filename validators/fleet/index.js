@@ -1,7 +1,7 @@
 const { body, param } = require('express-validator');
-const ticket_service = require('../../services/ticket')
+const fleet_service = require('../../services/fleet')
 
-const addTicketValidation = () => {
+const addFleetValidation = () => {
     return [
         body('eventName')
             .notEmpty().withMessage('Event name must not be empty')
@@ -20,23 +20,23 @@ const addTicketValidation = () => {
     ];
 };
 
-const deleteTicketValidation = () => {
+const deleteFleetValidation = () => {
     return [
         param('id').custom(async (id) => {
-            const exists = await ticket_service.getById(id);
+            const exists = await fleet_service.getById(id);
             if (!exists) {
-                throw new Error('Ticket not found');
+                throw new Error('Fleet item not found');
             }
         })
     ];
 };
 
-const updateTicketValidation = () => {
+const updateFleetValidation = () => {
     return [
         param('id').custom(async (id) => {
-            const exists = await ticket_service.getById(id);
+            const exists = await fleet_service.getById(id);
             if (!exists) {
-                throw new Error('Ticket not found');
+                throw new Error('Fleet item not found.');
             }
         }),
         body('eventName')
@@ -57,7 +57,7 @@ const updateTicketValidation = () => {
 };
 
 module.exports = {
-    addTicketValidation,
-    updateTicketValidation,
-    deleteTicketValidation
+    addFleetValidation,
+    updateFleetValidation,
+    deleteFleetValidation
 };

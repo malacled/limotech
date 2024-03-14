@@ -1,38 +1,38 @@
 const express = require('express');
 const { validationResult } = require('express-validator');
-const { addTicketValidation, updateTicketValidation, deleteTicketValidation } = require('../../../validators/ticket');
+const { addFleetValidation, updateFleetValidation, deleteFleetValidation } = require('../../../validators/fleet');
 
 const router = express.Router();
-const ticket_controller = require('../../../controllers/api/ticket');
+const fleet_controller = require('../../../controllers/api/fleet');
 
 // Define API routes
 router.get('/', (req, res)=>{
-    ticket_controller.getAll(req, res);
+    fleet_controller.getAll(req, res);
 });
 
-router.post('/', addTicketValidation(), (req, res)=>{
+router.post('/', addFleetValidation(), (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    ticket_controller.create(req, res)
+    fleet_controller.create(req, res)
 })
 
-router.put('/:id', updateTicketValidation(), (req, res)=>{
+router.put('/:id', updateFleetValidation(), (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    ticket_controller.update(req, res)
+    fleet_controller.update(req, res)
 })
 
-router.delete('/:id', deleteTicketValidation(), (req, res, next)=>{
+router.delete('/:id', deleteFleetValidation(), (req, res, next)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    ticket_controller.delete(req, res)
+    fleet_controller.delete(req, res)
 })
 
 module.exports = router;
