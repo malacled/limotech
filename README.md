@@ -1,6 +1,7 @@
 # limotech
 DOCUMENTATION: 
 
+-This project was created for coursework task 2 in the Web Technology module. It is not currently meant for recreational or professional use. The below app descriptions are ini a hypothetical universe where this is an actual web app for use rather than being marked. 
 
 -About the app: LimoTech is an app to help transportation companies manage their fleet, and keep their fleet in check so they're always aware of the wear and tear on their cars. By providing them with the type of car, the official car name, the year of the model, as well as the mileage on it and the driver info, owners can have a general idea of how old or new their cars are, and when its high time to renew them or add more to their fleet.
 
