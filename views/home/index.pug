@@ -12,7 +12,7 @@ body
                     th(scope="col") ID
                     th(scope="col") Event Name
                     th(scope="col") Event DateTime
-                    th(scope="col") Venue
+                    th(scope="col") Car Type
                     th(scope="col") Contact Phone
                     th(scope="col") Car Miles
                     th(scope="col") Actions
@@ -29,8 +29,8 @@ script.
                 row.innerHTML = `
                     <td>${f.id}</td>
                     <td>${fleet.eventName}</td>
-                    <td>${fleet.eventDateTime}</td>
-                    <td>${fleet.venue}</td>
+                    <td>${fleet.productionDate}</td>
+                    <td>${fleet.carType}</td>
                     <td>${fleet.contactPhone}</td>
                     <td>${fleet.carMiles}</td>
                     <td>

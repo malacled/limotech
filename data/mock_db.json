@@ -3,10 +3,10 @@
         "id": "asf13rdsf",
         "fleet": {
             "eventName": "Andrea Bocelli",
-            "eventDateTime": "12/02/2024 19:00",
-            "venue": "Turkiston",
+            "productionDate": "04/05/2022 19:00",
+            "carType": "SED",
             "contactPhone": "+998947981819",
-            "carMiles": "43,000"
+            "carMiles": "10,000"
         }
     }
 ]
