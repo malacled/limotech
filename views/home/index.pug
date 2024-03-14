@@ -14,7 +14,7 @@ body
                     th(scope="col") Event DateTime
                     th(scope="col") Venue
                     th(scope="col") Contact Phone
-                    th(scope="col") Seat
+                    th(scope="col") Car Miles
                     th(scope="col") Actions
             tbody
 
@@ -32,7 +32,7 @@ script.
                     <td>${fleet.eventDateTime}</td>
                     <td>${fleet.venue}</td>
                     <td>${fleet.contactPhone}</td>
-                    <td>${fleet.seat}</td>
+                    <td>${fleet.carMiles}</td>
                     <td>
                         <button class="btn btn-primary btn-sm" data-id="${f.id}" onclick="window.location.href='/update/${f.id}'">Update</button>
                         <button class="btn btn-danger btn-sm" data-id="${f.id}">Delete</button>

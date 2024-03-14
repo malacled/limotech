@@ -15,8 +15,8 @@ const addFleetValidation = () => {
         body('contactPhone')
             .notEmpty().withMessage('Contact phone must not be empty')
             .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx'),
-        body('seat')
-            .notEmpty().withMessage('Seat must not be empty'),
+        body('carMiles')
+            .notEmpty().withMessage('Car Miles cannot be empty'),
     ];
 };
 
@@ -51,8 +51,8 @@ const updateFleetValidation = () => {
         body('contactPhone')
             .notEmpty().withMessage('Contact phone must not be empty')
             .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx'),
-        body('seat')
-            .notEmpty().withMessage('Seat must not be empty'),
+        body('carMiles')
+            .notEmpty().withMessage('Car Miles cannot be empty'),
     ];
 };
 
