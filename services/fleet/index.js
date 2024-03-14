@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 // access global mock db file
-const fleets = require(global.mock_db)
+const fleets = require(global.fleet_db)
 
 // write service method implementations
 const fleet_service = {
@@ -51,7 +51,7 @@ const fleet_service = {
 let writeToFile = async (users) => {
     await 
         fs.writeFileSync(
-            global.mock_db,
+            global.fleet_db,
             JSON.stringify(
                 users, null, 4
             ),
