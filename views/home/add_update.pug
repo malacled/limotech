@@ -4,8 +4,8 @@ body
     .container.mt-5
         h1 #{mode}
         .mb-3
-            label(for="eventName" class="form-label") Event Name
-            input(type="text" class="form-control" id="eventName" name="eventName" required)
+            label(for="carName" class="form-label") Event Name
+            input(type="text" class="form-control" id="carName" name="carName" required)
         .mb-3
             label(for="productionDate" class="form-label") Event Date/Time
             .input-group.date(id="datetimepicker1" data-target-input="nearest")
@@ -39,7 +39,7 @@ body
 
         if ("#{mode}" === "Update") {
             const eventData = !{JSON.stringify(eventData || {})}.fleet;
-            document.getElementById('eventName').value = eventData.eventName || '';
+            document.getElementById('carName').value = eventData.carName || '';
 
             picker.dates.setValue(
                 new tempusDominus.DateTime(moment(eventData.productionDate, format))
@@ -52,7 +52,7 @@ body
 
         function submitForm() {
             const eventData = {
-                eventName: document.getElementById('eventName').value,
+                carName: document.getElementById('carName').value,
                 productionDate: document.getElementById('productionDate').value,
                 carType: document.getElementById('carType').value,
                 contactPhone: document.getElementById('contactPhone').value,

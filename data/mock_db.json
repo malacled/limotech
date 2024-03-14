@@ -2,11 +2,11 @@
     {
         "id": "asf13rdsf",
         "fleet": {
-            "eventName": "Andrea Bocelli",
+            "carName": "Andrea Bocellis",
             "productionDate": "04/05/2022 19:00",
-            "carType": "SED",
-            "contactPhone": "+998947981819",
-            "carMiles": "10,000"
+            "carType": "SUV",
+            "contactPhone": "+998947981818",
+            "carMiles": "12,000"
         }
     }
 ]

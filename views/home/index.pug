@@ -5,13 +5,13 @@ body
             .col-md-6
                 h1 List
             .col-md-6.text-end
-                a.btn.btn-success(href='/add', role='button') Add      
+                a.btn.btn-success(href='/add', role='button') Add
         table.table.table-responsive.table-hover.table-striped.table-dark
             thead
                 tr
                     th(scope="col") ID
-                    th(scope="col") Event Name
-                    th(scope="col") Event DateTime
+                    th(scope="col") Car Name
+                    th(scope="col") Production Date
                     th(scope="col") Car Type
                     th(scope="col") Contact Phone
                     th(scope="col") Car Miles
@@ -28,7 +28,7 @@ script.
                 const fleet = f.fleet
                 row.innerHTML = `
                     <td>${f.id}</td>
-                    <td>${fleet.eventName}</td>
+                    <td>${fleet.carName}</td>
                     <td>${fleet.productionDate}</td>
                     <td>${fleet.carType}</td>
                     <td>${fleet.contactPhone}</td>

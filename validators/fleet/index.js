@@ -3,7 +3,7 @@ const fleet_service = require('../../services/fleet')
 
 const addFleetValidation = () => {
     return [
-        body('eventName')
+        body('carName')
             .notEmpty().withMessage('Event name must not be empty')
             .isLength({ min: 8, max: 255 }).withMessage('Event name must be between 8 and 255 characters long'),
         body('productionDate')
@@ -39,7 +39,7 @@ const updateFleetValidation = () => {
                 throw new Error('Fleet item not found.');
             }
         }),
-        body('eventName')
+        body('carName')
             .notEmpty().withMessage('Event name must not be empty')
             .isLength({ min: 8, max: 255 }).withMessage('Event name must be between 8 and 255 characters long'),
         body('productionDate')
